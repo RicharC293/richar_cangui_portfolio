@@ -16,7 +16,7 @@ class MailService {
 
   final _auth = 'Bearer ${Env.sendGridApi}';
 
-  final _destinationEmail = 'contactos@richarcangui.com';
+  final _destinationEmail = Env.receiverEmail;
 
   Future<void> sendEmail(
       {required String name,

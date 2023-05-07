@@ -8,4 +8,9 @@ abstract class Env {
     'SENDGRID_API',
     defaultValue: '',
   );
+
+  static const String receiverEmail = String.fromEnvironment(
+    'RECEIVER_EMAIL',
+    defaultValue: '',
+  );
 }
