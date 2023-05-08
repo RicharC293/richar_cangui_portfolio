@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:richar_cangui/app/screens/portfolio/widgets/social_networks.dart';
-import 'package:richar_cangui/domain/notifiers/social_networks_notifier.dart';
+import 'package:richar/app/screens/portfolio/widgets/social_networks.dart';
+import 'package:richar/domain/notifiers/social_networks_notifier.dart';
 
 class AnimatedSocialNetworks extends ConsumerWidget {
   const AnimatedSocialNetworks({Key? key}) : super(key: key);

@@ -1,9 +1,10 @@
-import 'package:dio/dio.dart';
-import 'package:richar_cangui/env.dart';
+import 'package:emailjs/emailjs.dart' as emailjs;
+import 'package:richar/env.dart';
 
 class MailService {
   //Create a singleton with factory
   static final MailService _singleton = MailService._internal();
+
   factory MailService() {
     return _singleton;
   }
@@ -12,35 +13,28 @@ class MailService {
 
   MailService._internal();
 
-  final _baseUrl = Env.sendGridUrl;
-
-  final _auth = 'Bearer ${Env.sendGridApi}';
-
-  final _destinationEmail = Env.receiverEmail;
-
   Future<void> sendEmail(
       {required String name,
       required String email,
       required String message}) async {
     try {
-      final data = {
-        "personalizations": [
-          {
-            "to": [
-              {"email": _destinationEmail}
-            ],
-            "subject": "Contact from web page"
-          }
-        ],
-        "content": [
-          {"type": "text/plain", "value": message}
-        ],
-        "from": {"email": email, "name": name},
+
+      final templateParams = {
+        'from_name': name,
+        'to_name': "Richar Cangui",
+        'message': message,
+        'reply_to': email,
       };
-      await Dio(BaseOptions(headers: {
-        'Authorization': _auth,
-        'Content-Type': 'application/json'
-      })).post(_baseUrl, data: data);
+
+      await emailjs.EmailJS.send(
+        Env.emailServiceId,
+        Env.emailTemplateId,
+        templateParams,
+        const emailjs.Options(
+          publicKey: Env.emailPublicKey,
+          privateKey: Env.emailPrivateKey,
+        ),
+      );
     } catch (_) {
       rethrow;
     }

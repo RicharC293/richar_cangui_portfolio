@@ -1,4 +1,4 @@
-name: richar_cangui
+name: richar
 description: Richar Cangui portfolio
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -42,7 +42,7 @@ dependencies:
   responsive_framework: ^1.0.0
   flutter_svg: ^2.0.5
   url_launcher: ^6.1.10
-  dio: ^5.1.1
+  emailjs: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,7 +67,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/rive/
+    - assets/rive/robot_up.riv
+    - assets/rive/among_us.riv
+    - assets/rive/dash.riv
     - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see

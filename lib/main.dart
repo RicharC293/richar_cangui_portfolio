@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:richar_cangui/app/screens/portfolio/portfolio.dart';
+import 'package:richar/app/screens/portfolio/portfolio.dart';
 
 import 'app/utils/custom_scroll_behaivor.dart';
 import 'app/utils/theme.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Richar Cangui',
         theme: theme,
         home: const Portfolio(),
         scrollBehavior: CustomScrollBehavior(),

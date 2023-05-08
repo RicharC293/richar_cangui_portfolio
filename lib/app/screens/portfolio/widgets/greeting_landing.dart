@@ -1,7 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_breakpoints.dart';
-import 'package:richar_cangui/app/utils/text_content.dart';
+import 'package:richar/app/utils/text_content.dart';
 
 class GreetingLanding extends StatelessWidget {
   const GreetingLanding({Key? key, this.onFinished}) : super(key: key);

@@ -15,3 +15,12 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # richar_cangui_portfolio
+
+## How Build 
+
+This project use the strategy --dart-define-from-file to define env variables, so you need to create a file called env.json in the root of the project and add the variables in env.json.template
+
+To run:
+ ```
+    flutter run --dart-define-from-file=env.json
+ ```

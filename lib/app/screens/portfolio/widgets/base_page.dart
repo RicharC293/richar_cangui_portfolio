@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
+import 'package:richar/app/utils/constants.dart';
 
 class KeepAlivePage extends StatefulWidget {
   const KeepAlivePage({

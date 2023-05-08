@@ -1,9 +1,8 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
-import 'package:richar_cangui/domain/notifiers/social_networks_notifier.dart';
+import 'package:richar/app/utils/constants.dart';
+import 'package:richar/domain/notifiers/social_networks_notifier.dart';
 
 import '../../../../domain/notifiers/button_notifier.dart';
 import '../../../utils/text_content.dart';

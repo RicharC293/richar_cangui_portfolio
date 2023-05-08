@@ -2,17 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
-import 'package:richar_cangui/app/screens/portfolio/widgets/skill.dart';
-import 'package:richar_cangui/app/screens/portfolio/widgets/animated_social_networks.dart';
-import 'package:richar_cangui/app/screens/portfolio/widgets/social_networks.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
-import 'package:richar_cangui/app/utils/text_content.dart';
-import 'package:richar_cangui/app/widgets/base_button.dart';
-import 'package:richar_cangui/services/mail_service.dart';
+import 'package:richar/app/screens/portfolio/widgets/social_networks.dart';
+import 'package:richar/app/utils/constants.dart';
+import 'package:richar/app/utils/text_content.dart';
+import 'package:richar/app/widgets/base_button.dart';
+import 'package:richar/services/mail_service.dart';
 import 'package:rive/rive.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../../widgets/bold_letters.dart';
 import '../widgets/base_page.dart';
 
 class ContactMe extends StatefulWidget {
@@ -56,10 +52,6 @@ class _ContactMeState extends State<ContactMe>
       _leftPositioned = MediaQuery.of(context).size.width + 100;
       _isFirstTime = true;
       setState(() {});
-      widget.pageController.nextPage(
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-      );
     }
     if (_scrollController.hasClients &&
         _scrollController.offset <=
@@ -82,6 +74,9 @@ class _ContactMeState extends State<ContactMe>
   Future<void> _sendEmail() async {
     try {
       if (!_formKey.currentState!.validate()) return;
+      setState(() {
+        _isLoading = true;
+      });
       _formKey.currentState!.save();
       await MailService.instance
           .sendEmail(name: _name!, email: _email!, message: _message!);
@@ -96,6 +91,11 @@ class _ContactMeState extends State<ContactMe>
         content: Text(TextContent.instance.errorSend),
         backgroundColor: alertColor,
       ));
+    } finally {
+      if (!mounted) return;
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -207,6 +207,11 @@ class _ContactMeState extends State<ContactMe>
                             textInputAction: TextInputAction.next,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
+                                return TextContent.instance.emailError;
+                              }
+                              if (!RegExp(
+                                      r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                  .hasMatch(value)) {
                                 return TextContent.instance.emailError;
                               }
                               return null;

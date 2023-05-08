@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
-import 'package:richar_cangui/app/screens/portfolio/screens/about_me.dart';
-import 'package:richar_cangui/app/screens/portfolio/screens/contact_me.dart';
-import 'package:richar_cangui/app/screens/portfolio/screens/projects_and_experience.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
-import 'package:richar_cangui/app/utils/text_content.dart';
-import 'package:richar_cangui/app/widgets/animated_cursor.dart';
+import 'package:richar/app/screens/portfolio/screens/about_me.dart';
+import 'package:richar/app/screens/portfolio/screens/contact_me.dart';
+import 'package:richar/app/screens/portfolio/screens/projects_and_experience.dart';
+import 'package:richar/app/utils/constants.dart';
+import 'package:richar/app/utils/text_content.dart';
+import 'package:richar/app/widgets/animated_cursor.dart';
 
 import 'screens/home.dart';
-import 'widgets/base_page.dart';
 
 class Portfolio extends ConsumerStatefulWidget {
   const Portfolio({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
+import 'package:richar/app/utils/constants.dart';
 
 class Skill extends StatefulWidget {
   const Skill({Key? key, required this.logo, this.name, this.colorFilter})

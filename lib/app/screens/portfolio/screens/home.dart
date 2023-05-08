@@ -120,7 +120,7 @@ class _HomeState extends ConsumerState<Home> {
                   });
                 },
                 child: RiveAnimation.network(
-                  'assets/rive/robot.riv',
+                  'assets/rive/robot_up.riv',
                   artboard: 'Character',
                   animations: const ['Thumbnail', 'Fly'],
                   controllers: [

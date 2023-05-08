@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
+import 'package:richar/app/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Projects extends StatelessWidget {

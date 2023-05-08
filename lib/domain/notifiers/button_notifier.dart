@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
-import 'package:richar_cangui/domain/models/button_model.dart';
+import 'package:richar/app/utils/constants.dart';
+import 'package:richar/domain/models/button_model.dart';
 
 final buttonProvider =
     StateNotifierProvider<ButtonNotifier, ButtonModel>((ref) {

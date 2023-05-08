@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
-import 'package:richar_cangui/app/screens/portfolio/widgets/skill.dart';
-import 'package:richar_cangui/app/utils/constants.dart';
-import 'package:richar_cangui/app/utils/text_content.dart';
-import 'package:richar_cangui/app/widgets/base_button.dart';
+import 'package:richar/app/screens/portfolio/widgets/skill.dart';
+import 'package:richar/app/utils/constants.dart';
+import 'package:richar/app/utils/text_content.dart';
+import 'package:richar/app/widgets/base_button.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
