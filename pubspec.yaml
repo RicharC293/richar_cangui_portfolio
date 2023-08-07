@@ -67,9 +67,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/rive/robot_up.riv
-    - assets/rive/among_us.riv
-    - assets/rive/dash.riv
+    - assets/rive/
     - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see

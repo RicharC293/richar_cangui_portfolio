@@ -117,7 +117,7 @@ class _HomeState extends ConsumerState<Home> {
                     _isPlayingFly ? null : _controllerFly.isActive = true;
                   });
                 },
-                child: RiveAnimation.network(
+                child: RiveAnimation.asset(
                   'assets/rive/robot_up.riv',
                   artboard: 'Character',
                   animations: const ['Thumbnail', 'Fly'],
