@@ -18,7 +18,23 @@ class Portfolio extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<Portfolio> {
-  final PageController _pageController = PageController();
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _home = GlobalKey();
+  final GlobalKey _aboutMe = GlobalKey();
+  final GlobalKey _projectsAndExperience = GlobalKey();
+  final GlobalKey _contactMe = GlobalKey();
+
+  void goToWidgetPositioned(GlobalKey key) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox? renderBox =
+          key.currentContext?.findRenderObject() as RenderBox?;
+      if (renderBox == null) return;
+      _scrollController.jumpTo(0);
+      final position = renderBox.localToGlobal(Offset.zero);
+      final scrollPosition = position.dy - kToolbarHeight;
+      _scrollController.jumpTo(scrollPosition);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,36 +44,21 @@ class _HomeScreenState extends ConsumerState<Portfolio> {
           actions: ResponsiveBreakpoints.of(context).largerThan(MOBILE)
               ? [
                   TextButton(
-                    onPressed: () {
-                      _pageController.animateToPage(0,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOut);
-                    },
+                    onPressed: () => goToWidgetPositioned(_home),
                     child: const Text('Home'),
                   ),
                   const SizedBox(width: spacing4),
                   TextButton(
-                      onPressed: () {
-                        _pageController.animateToPage(1,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
-                      },
+                      onPressed: () => goToWidgetPositioned(_aboutMe),
                       child: Text(TextContent.instance.aboutMe)),
                   const SizedBox(width: spacing4),
                   TextButton(
-                      onPressed: () {
-                        _pageController.animateToPage(2,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
-                      },
+                      onPressed: () =>
+                          goToWidgetPositioned(_projectsAndExperience),
                       child: Text(TextContent.instance.projectsAndExperience)),
                   const SizedBox(width: spacing4),
                   TextButton(
-                      onPressed: () {
-                        _pageController.animateToPage(3,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
-                      },
+                      onPressed: () => goToWidgetPositioned(_contactMe),
                       child: Text(TextContent.instance.contactMe)),
                 ]
               : null,
@@ -70,51 +71,48 @@ class _HomeScreenState extends ConsumerState<Portfolio> {
                     ListTile(
                       title: const Text('Home'),
                       onTap: () {
-                        _pageController.animateToPage(0,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
+                        goToWidgetPositioned(_home);
                         Navigator.pop(context);
                       },
                     ),
                     ListTile(
                       title: Text(TextContent.instance.aboutMe),
                       onTap: () {
-                        _pageController.animateToPage(1,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
+                        goToWidgetPositioned(_aboutMe);
                         Navigator.pop(context);
                       },
                     ),
                     ListTile(
                       title: Text(TextContent.instance.projectsAndExperience),
                       onTap: () {
-                        _pageController.animateToPage(2,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
+                        goToWidgetPositioned(_projectsAndExperience);
                         Navigator.pop(context);
                       },
                     ),
                     ListTile(
                       title: Text(TextContent.instance.contactMe),
                       onTap: () {
-                        _pageController.animateToPage(3,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut);
+                        goToWidgetPositioned(_contactMe);
                         Navigator.pop(context);
                       },
                     ),
                   ],
                 ),
               ),
-        body: PageView(
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          controller: _pageController,
-          children: [
-            Home(pageController: _pageController),
-            AboutMe(pageController: _pageController),
-            ProjectsAndExperience(pageController: _pageController),
-            ContactMe(pageController: _pageController),
-          ],
+          controller: _scrollController,
+          child: Column(
+            children: [
+              Home(
+                key: _home,
+                onStart: () => goToWidgetPositioned(_aboutMe),
+              ),
+              AboutMe(key: _aboutMe),
+              ProjectsAndExperience(key: _projectsAndExperience),
+              ContactMe(key: _contactMe),
+            ],
+          ),
         ),
       ),
     );

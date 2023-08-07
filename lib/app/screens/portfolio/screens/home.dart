@@ -11,8 +11,8 @@ import '../widgets/greeting_landing.dart';
 import '../widgets/animated_social_networks.dart';
 
 class Home extends ConsumerStatefulWidget {
-  const Home( {Key? key, required this.pageController}) : super(key: key);
-  final PageController pageController;
+  const Home({Key? key, required this.onStart}) : super(key: key);
+  final VoidCallback onStart;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _HomeState();
@@ -80,9 +80,7 @@ class _HomeState extends ConsumerState<Home> {
                     setState(() {
                       _isPlayingFly ? null : _controllerFly.isActive = true;
                     });
-                    widget.pageController.animateToPage(1,
-                        duration: const Duration(seconds: 1),
-                        curve: Curves.easeIn);
+                    widget.onStart.call();
                   },
                 ),
                 if (ResponsiveBreakpoints.of(context)

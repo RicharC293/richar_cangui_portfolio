@@ -8,7 +8,7 @@ final theme = ThemeData(
   fontFamily: GoogleFonts.robotoMono().fontFamily,
   useMaterial3: true,
   primaryColor: const Color(0xFF68566D),
-  accentColor: const Color(0xFFE6B89C),
+  hintColor: const Color(0xFFE6B89C),
   scaffoldBackgroundColor: const Color(0xFF000000),
   buttonTheme: ButtonThemeData(
     buttonColor: const Color(0xFF68566D),
