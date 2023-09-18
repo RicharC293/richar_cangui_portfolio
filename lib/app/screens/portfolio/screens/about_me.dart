@@ -43,6 +43,7 @@ class _AboutMeState extends State<AboutMe> with SingleTickerProviderStateMixin {
   }
 
   TextStyle? _getTitleContentStyle() {
+    print("Hello");
     return ResponsiveBreakpoints.of(context).smallerOrEqualTo('SMALL_DESKTOP')
         ? Theme.of(context)
             .textTheme
