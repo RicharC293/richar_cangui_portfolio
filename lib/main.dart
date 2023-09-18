@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:richar/app/screens/portfolio/portfolio.dart';
+import 'package:richar/app/screens/privacity/privacity.dart';
 
 import 'app/utils/custom_scroll_behaivor.dart';
 import 'app/utils/theme.dart';
@@ -16,10 +18,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
         title: 'Richar Cangui',
         theme: theme,
-        home: const Portfolio(),
+        routerConfig: GoRouter(
+          initialLocation: Portfolio.routeName,
+          routes: [
+            GoRoute(
+              path: Portfolio.routeName,
+              builder: (context, state) => const Portfolio(),
+            ),
+            GoRoute(
+              path: PrivacyPolicy.routeName,
+              builder: (context, state) => const PrivacyPolicy(),
+            ),
+          ],
+        ),
         scrollBehavior: CustomScrollBehavior(),
         builder: (context, child) {
           return ResponsiveBreakpoints.builder(

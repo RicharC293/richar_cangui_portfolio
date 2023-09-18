@@ -13,6 +13,8 @@ import 'screens/home.dart';
 class Portfolio extends ConsumerStatefulWidget {
   const Portfolio({Key? key}) : super(key: key);
 
+  static const routeName = '/';
+
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _HomeScreenState();
 }
