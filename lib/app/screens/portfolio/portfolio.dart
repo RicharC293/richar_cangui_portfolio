@@ -7,6 +7,7 @@ import 'package:richar/app/screens/portfolio/screens/projects_and_experience.dar
 import 'package:richar/app/utils/constants.dart';
 import 'package:richar/app/utils/text_content.dart';
 import 'package:richar/app/widgets/animated_cursor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'screens/home.dart';
 
@@ -62,6 +63,17 @@ class _HomeScreenState extends ConsumerState<Portfolio> {
                   TextButton(
                       onPressed: () => goToWidgetPositioned(_contactMe),
                       child: Text(TextContent.instance.contactMe)),
+                  const SizedBox(width: spacing4),
+                  TextButton(
+                      onPressed: () async {
+                        // open external link
+                        final url =
+                            Uri.parse('https://samples.richarcangui.com/');
+                        if (!await launchUrl(url)) {
+                          throw Exception('Could not launch $url');
+                        }
+                      },
+                      child: Text(TextContent.instance.mySamples)),
                 ]
               : null,
         ),

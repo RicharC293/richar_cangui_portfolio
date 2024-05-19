@@ -108,6 +108,8 @@ class TextContent {
 
   String get contactMe => 'Contact Me';
 
+  String get mySamples => 'Animation Examples';
+
   String get contactMeDescription =>
       'Feel free to Contact me by submitting the form below and I will get back to you as soon as possible, or connect me with my social networks.';
 
