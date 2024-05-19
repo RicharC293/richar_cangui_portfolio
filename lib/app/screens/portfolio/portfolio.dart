@@ -66,7 +66,6 @@ class _HomeScreenState extends ConsumerState<Portfolio> {
                   const SizedBox(width: spacing4),
                   TextButton(
                       onPressed: () async {
-                        // open external link
                         final url =
                             Uri.parse('https://samples.richarcangui.com/');
                         if (!await launchUrl(url)) {
@@ -110,6 +109,15 @@ class _HomeScreenState extends ConsumerState<Portfolio> {
                         Navigator.pop(context);
                       },
                     ),
+                    ListTile(
+                        onTap: () async {
+                          final url =
+                              Uri.parse('https://samples.richarcangui.com/');
+                          if (!await launchUrl(url)) {
+                            throw Exception('Could not launch $url');
+                          }
+                        },
+                        title: Text(TextContent.instance.mySamples)),
                   ],
                 ),
               ),
