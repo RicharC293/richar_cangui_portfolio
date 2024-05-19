@@ -26,3 +26,17 @@ To run:
  ```
     flutter run --dart-define-from-file=env.json
  ```
+
+## How setup local CI/CD
+* Create a folder called web_builder in the root of the project.
+* Create a new project in our github account called web_builder.
+* Important! Setup git and connect with the new project in the folder web_builder.
+* Continue with the next steps.
+
+## How deploy
+
+* This project contains a automatic deploy in local
+* To deploy in production you need open terminal and run the command:
+    ```
+        make deploy-web
+    ```
